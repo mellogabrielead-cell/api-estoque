@@ -1,17 +1,19 @@
+import sqlite3  # <--- ESSA LINHA PRECISA ESTAR AQUI NO TOPO!
 from fastapi import FastAPI
-# 1. ADICIONE ESSA LINHA DE IMPORTAÇÃO:
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# 2. ADICIONE TODO ESSE BLOCO AQUI EMBAIXO:
+# Bloco do CORS para liberar o Live Server
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permite que o Live Server acesse a API
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Abaixo daqui continua o resto do seu código normal...
 
 # Abaixo daqui continua o resto do seu código normal (@app.get, @app.post, etc...)
 
