@@ -1,19 +1,19 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+# 1. ADICIONE ESSA LINHA DE IMPORTAÇÃO:
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import sqlite3
-from typing import List
 
-app = FastAPI(title="Estoque Pro ERP - Core Backend")
+app = FastAPI()
 
-# Libera o acesso para o Frontend
+# 2. ADICIONE TODO ESSE BLOCO AQUI EMBAIXO:
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Permite que o Live Server acesse a API
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Abaixo daqui continua o resto do seu código normal (@app.get, @app.post, etc...)
 
 # Conexão com Banco de Dados SQLite
 def conectar_banco():
