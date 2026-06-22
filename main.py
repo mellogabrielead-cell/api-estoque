@@ -1,6 +1,8 @@
-import sqlite3  # <--- ESSA LINHA PRECISA ESTAR AQUI NO TOPO!
+import sqlite3
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+# ADICIONE ESTA LINHA ABAIXO PARA LIBERAR O BASEMODEL:
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -13,6 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Abaixo daqui continua o resto do seu código normal...
 # Abaixo daqui continua o resto do seu código normal...
 
 # Abaixo daqui continua o resto do seu código normal (@app.get, @app.post, etc...)
